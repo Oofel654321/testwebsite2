@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Barangay San Isidro - Official Website</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --primary: #003087;      /* Deep blue - government feel */
+      --secondary: #ce1126;    /* Red accent - Philippine flag */
+      --light: #f8f9fa;
+      --dark: #222;
+      --gold: #daaa0a;         /* Subtle gold for highlights */
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: var(--light);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header / Navbar */
+    header {
+      background: linear-gradient(to right, var(--primary), #0047ab);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .top-bar {
+      background: var(--secondary);
+      text-align: center;
+      padding: 6px 0;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo img {
+      height: 60px;
+      width: auto;
+    }
+
+    .logo h1 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    .logo p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                  url('https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 120px 20px;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 16px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--secondary);
+      color: white;
+      padding: 14px 32px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: 0.3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .btn:hover {
+      background: #b50e1f;
+      transform: translateY(-3px);
+    }
+
+    /* Main Content Sections */
+    section {
+      padding: 70px 0;
+    }
+
+    h3 {
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 40px;
+      font-size: 2.2rem;
+      position: relative;
+    }
+
+    h3::after {
+      content: '';
+      width: 80px;
+      height: 4px;
+      background: var(--gold);
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 24px;
+      text-align: center;
+    }
+
+    .card h4 {
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    /* Officials */
+    .officials .grid {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .official-photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--primary);
+      margin: 0 auto 16px;
+      display: block;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: white;
+      padding: 60px 0 20px;
+      text-align: center;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .social-links a {
+      color: white;
+      font-size: 1.6rem;
+      margin: 0 12px;
+      transition: 0.3s;
+    }
+
+    .social-links a:hover {
+      color: var(--gold);
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 20px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none; /* You can add hamburger menu JS later */
+      }
+      .hero {
+        padding: 90px 20px;
+      }
+      .hero h2 {
+        font-size: 2.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    Official Website of Barangay San Isidro • Transparent • Accountable • Responsive
+  </div>
+
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <!-- Replace with your actual barangay logo -->
+          <img src="https://via.placeholder.com/60x60/003087/fff?text=BSI" alt="Barangay Logo">
+          <div>
+            <h1>Barangay San Isidro</h1>
+            <p>Municipality of [Your Town], Province of [Your Province]</p>
+          </div>
+        </div>
+
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#officials">Officials</a>
+          <a href="#news">News & Announcements</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="container">
+      <h2>Malalaking Barangay • Malalim na Serbisyo</h2>
+      <p>Welcome to the official website of Barangay San Isidro. We are committed to transparent governance, efficient public service, and building a progressive, peaceful, and united community.</p>
+      <a href="#services" class="btn">Request Barangay Clearance / Certificate</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h3>About Our Barangay</h3>
+      <p style="max-width:900px; margin:0 auto 40px; text-align:center; font-size:1.1rem;">
+        Barangay San Isidro is a vibrant community with approximately 8,500 residents. We strive to deliver quality basic services, maintain peace and order, promote sustainable development, and preserve our Filipino values and traditions.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1581092160560-1c1e428e9d65?auto=format&fit=crop&q=80" alt="Community">
+          <div class="card-content">
+            <h4>Our Vision</h4>
+            <p>A progressive, peaceful, and God-loving barangay where every resident lives with dignity and opportunity.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1517248135467-2c7ed3ab7229?auto=format&fit=crop&q=80" alt="Mission">
+          <div class="card-content">
+            <h4>Our Mission</h4>
+            <p>To provide efficient, transparent, and responsive governance for the general welfare of all constituents.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" style="background:#fff;">
+    <div class="container">
+      <h3>Barangay Services & Programs</h3>
+      <div class="grid">
+        <div class="card">
+          <i class="fas fa-file-alt" style="font-size:3.5rem; color:var(--primary); margin:20px auto; display:block; text-align:center;"></i>
+          <div class="card-content">
+            <h4>Issuance of Clearances & Certificates</h4>
+            <p>Barangay Clearance, Certificate of Residency, Indigency, etc.</p>
+          </div>
+        </div>
+        <div class="card">
+          <i class="fas fa-heartbeat" style="font-size:3.5rem; color:var(--primary); margin:20px auto; display:block; text-align:center;"></i>
+          <div class="card-content">
+            <h4>Health & Wellness</h4>
+            <p>Medical missions, vaccination drives, senior citizen programs</p>
+          </div>
+        </div>
+        <div class="card">
+          <i class="fas fa-broom" style="font-size:3.5rem; color:var(--primary); margin:20px auto; display:block; text-align:center;"></i>
+          <div class="card-content">
+            <h4>Cleanliness & Environment</h4>
+            <p>Waste management, tree planting, drainage maintenance</p>
+          </div>
+        </div>
+        <div class="card">
+          <i class="fas fa-gavel" style="font-size:3.5rem; color:var(--primary); margin:20px auto; display:block; text-align:center;"></i>
+          <div class="card-content">
+            <h4>Katarungang Pambarangay</h4>
+            <p>Mediation and amicable settlement of disputes</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="officials" style="background:var(--light);">
+    <div class="container">
+      <h3>Barangay Officials</h3>
+      <div class="grid officials">
+        <div class="card">
+          <img src="https://via.placeholder.com/140/003087/fff?text=PB" alt="Punong Barangay" class="official-photo">
+          <div class="card-content">
+            <h4>Hon. Juan Dela Cruz</h4>
+            <p>Punong Barangay</p>
+          </div>
+        </div>
+        <!-- Add more officials the same way -->
+        <div class="card">
+          <img src="https://via.placeholder.com/140/003087/fff?text=K1" alt="Kagawad" class="official-photo">
+          <div class="card-content">
+            <h4>Hon. Maria Santos</h4>
+            <p>Barangay Kagawad</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="news" style="background:#fff;">
+    <div class="container">
+      <h3>Latest News & Announcements</h3>
+      <div class="grid">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80" alt="News 1">
+          <div class="card-content">
+            <h4>Barangay Health Day 2026</h4>
+            <p>Free medical check-up and vaccination this coming March 15.</p>
+            <small>February 18, 2026</small>
+          </div>
+        </div>
+        <!-- Add 2-3 more news cards -->
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Barangay San Isidro</h4>
+          <p>[Barangay Address]<br>[Your Municipality], [Province]<br>Philippines</p>
+        </div>
+        <div>
+          <h4>Contact Us</h4>
+          <p>Phone: (045) 123-4567<br>Email: barangaysanisidro@email.ph</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul style="list-style:none; padding:0;">
+            <li><a href="#" style="color:white;">Request Documents</a></li>
+            <li><a href="#" style="color:white;">File Complaint</a></li>
+            <li><a href="#" style="color:white;">Barangay Ordinances</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+
+      <div class="copyright">
+        © 2026 Barangay San Isidro • Powered by Community Spirit
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
