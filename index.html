@@ -253,6 +253,80 @@
         font-size: 2.4rem;
       }
     }
+isplay: block;
+    }
+
+
+    
+    .subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+
+    .purok-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 24px;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .purok-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .purok-title {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #1a3c5e;
+      margin-bottom: 10px;
+    }
+
+    .population {
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: #e65100;
+      margin: 6px 0;
+    }
+
+    .label {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    .chart-container {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 24px;
+      margin-bottom: 40px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .chart-title {
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #1a3c5e;
+      margin-bottom: 16px;
+    }
+
+    canvas {
+      max-height: 380px;
+    }
+
+    
   </style>
 </head>
 <body>
@@ -444,7 +518,111 @@ Hanggang sa kasalukuyan, ang pangingisda pa rin ang pangunahing kabuhayan ng mar
       </div>
     </div>
   </section>
+<!-- Chart.js CDN (latest stable as of 2026) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+<section style="font-family: Arial, Helvetica, sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      margin: 0;
+      padding: 20px 15px;
+      line-height: 1.6;">
 
+  <div style="max-width: 1000px; margin: 0 auto;">
+    <h1 style=""text-align: center;color: #1a3c5e;margin-bottom: 8px;">Residents per Purok</h1>
+    <p class="subtitle">Barangay Aplaya • As of February 9999</p>
+
+    <div class="stats-grid">
+
+      <div class="purok-card">
+        <div class="purok-title">Tanigue</div>
+        <div class="population">428</div>
+        <div class="label">Registered Residents</div>
+      </div>
+
+      <div class="purok-card">
+        <div class="purok-title">Maya-maya</div>
+        <div class="population">375</div>
+        <div class="label">Registered Residents</div>
+      </div>
+
+      <div class="purok-card">
+        <div class="purok-title">Lapu-lapu</div>
+        <div class="population">512</div>
+        <div class="label">Registered Residents</div>
+      </div>
+
+    </div>
+
+    <!-- Bar Chart -->
+    <div class="chart-container">
+      <div class="chart-title">Residente per Purok (Bar Chart)</div>
+      <canvas id="barChart"></canvas>
+    </div>
+
+    <!-- Pie Chart -->
+    <div class="chart-container">
+      <div class="chart-title">Residente per Purok (Pie Chart)</div>
+      <canvas id="pieChart"></canvas>
+    </div>
+  </div>
+<script>
+    // Data
+    const puroks = ['Tanigue', 'Maya-maya', 'Lapu-lapu'];
+    const residents = [428, 375, 512];
+    const colors = ['#36A2EB', '#FFCE56', '#FF6384'];
+
+    // Bar Chart
+    new Chart(document.getElementById('barChart'), {
+      type: 'bar',
+      data: {
+        labels: puroks,
+        datasets: [{
+          label: 'Residents',
+          data: residents,
+          backgroundColor: colors,
+          borderColor: colors.map(c => c.replace('1)', '0.8)')),
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: { display: true, text: 'Number of Residents' }
+          }
+        },
+        plugins: {
+          legend: { display: false }
+        }
+      }
+    });
+
+    // Pie Chart
+    new Chart(document.getElementById('pieChart'), {
+      type: 'pie',
+      data: {
+        labels: puroks,
+        datasets: [{
+          data: residents,
+          backgroundColor: colors,
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }
+    });
+  </script>   
+</section>
+  
   <section id="news" style="background:#fff;">
     <div class="container">
       <h3>Bagong balita at panawagan</h3>
