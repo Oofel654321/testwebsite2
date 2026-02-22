@@ -22,102 +22,27 @@
 }
 
 /* RESET */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+*{ margin:0;padding:0; box-sizing:border-box;}
 
-body{
-  font-family: "Segoe UI", Arial, sans-serif;
-  background:var(--gov-light);
-  color:#333;
-}
-
-/* =====================
-   TOP GOV BAR
-===================== */
-.gov-topbar{
-  background:#002147;
-  color:white;
-  text-align:center;
-  padding:6px;
-  font-size:.85rem;
-}
-
-/* =====================
-   MAIN HEADER
-===================== */
-.main-header{
-  background:linear-gradient(90deg,var(--gov-green),var(--gov-blue));
-  color:white;
-}
-
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:0 20px;
-}
-
-.header-flex{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:18px 0;
-}
-
-.logo-group{
-  display:flex;
-  align-items:center;
-  gap:15px;
-}
-
-.logo-group img{
-  height:60px;
-}
-
-.logo-group h1{
-  font-size:1.4rem;
-}
-
-.logo-group p{
-  font-size:.85rem;
-  opacity:.9;
-}
-
-/* NAV */
-.main-nav a{
-  color:white;
-  text-decoration:none;
-  margin-left:25px;
-  font-weight:500;
-}
-
-.main-nav a:hover{
-  color:var(--gov-gold);
-}
-
-/* =====================
-   ANNOUNCEMENT BAR
-===================== */
-.announcement{
-  background:var(--gov-gold);
-  color:#222;
-  padding:10px;
-  text-align:center;
-  font-weight:600;
-}
-
-/* =====================
-   HERO
-===================== */
+body{font-family: "Segoe UI", Arial, sans-serif;background:var(--gov-light);color:#333;}
+.gov-topbar{background:#002147; color:white; text-align:center; padding:6px; font-size:.85rem;}
+.main-header{background:linear-gradient(90deg,var(--gov-green),var(--gov-blue));color:white;}
+.container{max-width:1200px;margin:auto; padding:0 20px;}
+.header-flex{display:flex; justify-content:space-between; align-items:center; padding:18px 0;}
+.logo-group{display:flex; align-items:center; gap:15px;}
+.logo-group img{ height:60px;}
+.logo-group h1{ font-size:1.4rem;}
+.logo-group p{font-size:.85rem; opacity:.9;}
+.main-nav a{ color:white;  text-decoration:none;  margin-left:25px;  font-weight:500;}
+.main-nav a:hover{  color:var(--gov-gold);}
+.announcement{ background:var(--gov-gold); color:#222; padding:10px; text-align:center; font-weight:600;}
 .hero{
-  background:url('{{ url_for("static", filename="images/batanesoftheeast.png") }}');
+  background:url('https://lh3.googleusercontent.com/gps-cs-s/AHVAwerORAg7jJgqm4Cl-uFITsdANEGHMNI-Ofxo7-Xd0S9pbBxg1qFCwCPBshODivrrHlRQE1xHjJLdk84u_aEjA_F2kdhZYZ6giJoqzT6vRQ68TW057W4WtHBPJMXy7ppr7kmXgqd1=s1360-w1360-h1020-rw');
   background-size:cover;
   background-position:center;
   padding:140px 20px;
   text-align:center;
-  color:white;
+  color:gold;
 }
 
 .hero h2{
@@ -198,7 +123,6 @@ body{
   color:var(--gov-blue);
   margin-bottom:15px;
 }
-
 /* =====================
    FOOTER
 ===================== */
@@ -234,15 +158,104 @@ footer a:hover{
   margin-top:25px;
   font-size:.85rem;
 }
-
 </style>
+
+<style>
+/* CARDS */
+.card{
+    background:white;
+    
+    margin-bottom:25px;
+    border-radius:8px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.1);
+}
+
+.card h2{
+    border-left:6px solid #003366;
+    padding-left:12px;
+    color:#008000;
+}
+
+/* TABLE */
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+table th, table td{
+    border:1px solid #ddd;
+    padding:10px;
+}
+
+table th{
+    background:#008000;
+    color:white;
+}
+
+/* =====================
+   OFFICER 
+===================== */
+
+.officials-grid{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+  padding:70px 0;
+
+}
+
+.official-card{
+    background:#f8f9fb;
+    padding:15px;
+    border-radius:8px;
+    text-align:center;
+    width:200px;
+}
+
+.official-card img{
+    width:100%;
+    border-radius:6px;
+}
+
+/* STATS */
+.stats-grid{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.stat-box{
+    background:#f8f9fb;
+    color:#0080000;
+    padding:20px;
+    border-radius:8px;
+    width:200px;
+    text-align:center;
+}
+
+/* NEWS */
+.news-item{
+    padding:12px 0;
+    border-bottom:1px solid #ddd;
+}
+
+/* FOOTER */
+.footer{
+    background:#003366;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+
 </head>
 
 <body>
 
 <!-- GOV TOP BAR -->
 <div class="gov-topbar">
-  Republic of the Philippines • Official Barangay Government Website
+    Barangay Aplaya, Dingalan, Aurora Official Website
 </div>
 
 <!-- HEADER -->
@@ -250,7 +263,7 @@ footer a:hover{
 <div class="container header-flex">
 
 <div class="logo-group">
-  <img src="{{ url_for('static', filename='images/logo1.png') }}">
+  <img src="/static/images/logo1.png">
   <div>
     <h1>Barangay Aplaya</h1>
     <p>Dingalan, Aurora</p>
@@ -282,38 +295,34 @@ footer a:hover{
 
 <!-- CITIZEN CHARTER -->
 <div class="container">
-<div class="citizen-charter">
+  <div class="citizen-charter">
+     <h2 class="section-title">Citizen Charter Quick Access</h2>
+     <div class="charter-grid">
+        <div class="charter-card">
+           <i class="fas fa-file-alt"></i>
+           <h4>Clearances</h4>
+           <p>Barangay Clearance, Residency, Indigency</p>
+        </div>
+        <div class="charter-card">
+           <i class="fas fa-gavel"></i>
+           <h4>Katarungang Barangay</h4>
+           <p>Complaint & Mediation Services</p>
+        </div>
 
-<h2 class="section-title">Citizen Charter Quick Access</h2>
+        <div class="charter-card">
+           <i class="fas fa-heart"></i>
+           <h4>Health Programs</h4>
+           <p>Senior & Medical Services</p>
+        </div>
 
-<div class="charter-grid">
+        <div class="charter-card">
+           <i class="fas fa-leaf"></i>
+           <h4>Environmental</h4>
+           <p>Waste & Cleanliness Programs</p>
+        </div>
 
-<div class="charter-card">
-<i class="fas fa-file-alt"></i>
-<h4>Clearances</h4>
-<p>Barangay Clearance, Residency, Indigency</p>
-</div>
-
-<div class="charter-card">
-<i class="fas fa-gavel"></i>
-<h4>Katarungang Barangay</h4>
-<p>Complaint & Mediation Services</p>
-</div>
-
-<div class="charter-card">
-<i class="fas fa-heart"></i>
-<h4>Health Programs</h4>
-<p>Senior & Medical Services</p>
-</div>
-
-<div class="charter-card">
-<i class="fas fa-leaf"></i>
-<h4>Environmental</h4>
-<p>Waste & Cleanliness Programs</p>
-</div>
-
-</div>
-</div>
+     </div>
+   </div>
 </div>
 
 <!-- SERVICES -->
@@ -341,11 +350,129 @@ footer a:hover{
 <h4>Sanitation Services</h4>
 <p>Community clean-up and waste management.</p>
 </div>
-
 </div>
-
 </div>
 </section>
+
+
+
+<!-- SERVICES -->
+<section class="services">
+<div class="container">
+
+<h2 class="section-title">BARANGAY OFFICIALS</h2>
+
+<div class="services-grid">
+
+<div class="service-card">
+                <img src="official1.jpg">
+                <h3>Hon. Macario F. Roxas</h3>
+                <p>Barangay Captain</p>
+</div>
+
+<div class="service-card">
+                <img src="official1.jpg">
+                <h3>Hon. Magdalena Lazaro</h3>
+                <p>Barangay Kagawad</p>
+</div>
+
+<div class="service-card">
+                <img src="official1.jpg">
+                <h3>Hon. Rodolfo P. Villegas</h3>
+                <p>Barangay Kagawad</p>
+</div>
+<div class="service-card">
+                <img src="official1.jpg">
+                <h3>Hon. Eugenio Bermudez</h3>
+                <p>Barangay Kagawad</p>
+</div>
+<div class="service-card">
+                <img src="official1.jpg">
+                <h3>Hon. Rodrigo Roxas</h3>
+                <p>Barangay Kagawad</p>
+</div>
+<div class="service-card">
+                <img src="official1.jpg">
+                <h3>Hon. Ricardo Roxas</h3>
+                <p>Barangay Kagawad</p>
+</div>
+<div class="service-card">
+                <img src="official1.jpg">
+                <h3>Hon. Frederick Abat</h3>
+                <p>Barangay Kagawad</p>
+</div>
+<div class="service-card">
+                <img src="official1.jpg">
+                <h3>Hon. Froilan Tena</h3>
+                <p>Barangay Kagawad</p>
+</div>
+
+<div class="service-card">
+                <img src="official1.jpg">
+                <h3>Jhonaliza Quejada</h3>
+                <p>Barangay Secretary</p>
+</div>
+<div class="service-card">
+                <img src="official1.jpg">
+                <h3>Mary Jane Sulita</h3>
+                <p>Administrative Officer</p>
+</div>
+<div class="service-card">
+                <img src="official1.jpg">
+                <h3>Hon. Magdalena Lazaro</h3>
+                <p>Barangay Treasurer</p>
+</div>
+
+
+
+</div>
+</div>
+</section>
+
+
+    <!-- STATISTICS -->
+    <section class="card">
+        <h2>Resident Statistics</h2>
+
+        <div class="stats-grid">
+            <div class="stat-box">
+                <h3>Population</h3>
+                <p>5,240</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>Households</h3>
+                <p>1,180</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>Registered Voters</h3>
+                <p>3,420</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>Senior Citizens</h3>
+                <p>420</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWS -->
+    <section class="card">
+        <h2>Latest News</h2>
+
+        <div class="news-item">
+            <h3>Medical Mission Conducted</h3>
+            <p>Free medical check-up was conducted last February 15.</p>
+        </div>
+
+        <div class="news-item">
+            <h3>Clean-Up Drive Success</h3>
+            <p>Community clean-up drive collected 2 tons of waste.</p>
+        </div>
+
+    </section>
+
 
 <!-- FOOTER -->
 <footer>
