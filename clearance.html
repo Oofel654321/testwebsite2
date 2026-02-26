@@ -1,0 +1,71 @@
+!DOCTYPE html>
+<html>
+<head>
+<title>Certification</title>
+<style>
+body{font-family: "Times New Roman", serif;margin: 60px; line-height: 1.6;}
+.header-row{display:flex;align-items:flex-start;justify-content:space-between;}
+.header{text-align:center;}
+.header h3{margin:0;}
+.header h2{margin:0;margin-top:20px}
+.title{text-align:center;font-size:22px;font-weight:bold;margin-top:40px;margin-bottom:40px;}
+.logo{width:90px;height:90px;object-fit:contain;margin-top:0px;}
+.left-logo{margin-right:10px;margin-top:0px;}
+.right-logo{margin-left:10px;margin-top:0px;}
+.content{text-align:justify;font-size:18px;}
+.signature{margin-top:80px;width:100%;}
+.signature-right{float:right;text-align:center;}
+.seal{margin-top:60px;font-size:14px;}
+@media print{body{margin: 70px;}}
+</style>
+</head>
+<body onload="window.print()">
+ 
+<div class="header">
+  <div class="header-row">
+    <img src="logo2.png" class="logo logo-left">
+    <div class="header-text">
+     <h3>Republic of the Philippines</h3>
+     <h3>Province of Aurora</h3>
+     <h3>Municipality of Dingalan</h3>
+     <h2>OFFICE OF THE PUNONG BARANGAY</h2>
+    </div>
+    <img src="logo1.jpg" class="logo logo-right">
+  </div>
+</div>
+
+<div class="title">BARANGAY CLEARANCE</div>
+
+<!-- BODY CONTENT -->
+<div class="content">
+
+TO WHOM IT MAY CONCERN:<br>
+<p style="text-indent:40px">This is to certify that <span id="fullname">[Full Name]</span></b>, of legal age, is a resident of <span id="address">[Address]</span>, Barangay Aplaya, Dingalan, Aurora and personally known to me, to be a peaceful and law-abiding citizen, free from administrative case within the jurisdiction of this barangay, of good moral character and reputation in this community.</p>
+<p style="text-indent:40px">This certification is issued this <span id="date">[date]</span>, here at Barangay Aplaya, Dingalan, Aurora upon request of the said resident for whatever purpose it may serve.</p> 
+</div>
+
+<!-- SIGNATURE -->
+<div class="signature">
+<div class="signature-left">
+<br>
+<u><b>HON. MACARIO F. ROXAS</b></u><br>
+Punong Barangay
+</div>
+<div style="clear:both;"></div>
+</div>
+<div class="seal">
+    <i>Not Valid Without Official Seal</i>
+</div>
+
+
+<script>
+const params = new URLSearchParams(window.location.search);
+
+["fullname", "address", "date"].forEach(id => {
+    const value = params.get(id);
+    if (value) document.getElementById(id).textContent = value;
+});
+</script>
+
+</body>
+</html>
