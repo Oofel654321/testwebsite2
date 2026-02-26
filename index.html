@@ -23,6 +23,91 @@
 
 /* RESET */
 *{ margin:0;padding:0; box-sizing:border-box;}
+/* ===== GLASS NAVBAR ===== */
+.navbar{
+    position:sticky;
+    top:0;margin-left:0
+    width:100%;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index:1000;
+}
+
+/* CONTAINER */
+.nav-container{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 20px;
+}
+/* NAV LINKS */
+.nav-links{
+    display:flex;
+    align-items:center;
+}
+
+.nav-links a, .dropbtn{
+    color:white;
+    text-decoration:none;
+    padding:10px 16px;
+    font-size:14px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+/* HOVER GLOW */
+.nav-links a:hover, .dropbtn:hover{
+    background: rgba(255,255,255,0.2);
+    border-radius:8px;
+}
+
+/* DROPDOWN */
+.dropdown{
+    position:relative;
+}
+
+.dropdown-content{
+    display:none;
+    position:absolute;
+    top:40px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    border-radius:10px;
+    min-width:180px;
+    padding:8px 0;
+}
+
+.dropdown-content a{
+    display:block;
+    padding:10px 15px;color:black;
+}
+
+.dropdown-content a:hover{
+    background: rgba(255,255,255,0.25);
+}
+
+.dropdown:hover .dropdown-content{
+    display:block;
+}
+
+/* HAMBURGER */
+.hamburger{
+    display:none;
+    flex-direction:column;
+    cursor:pointer;
+}
+
+.hamburger span{
+    height:3px;
+    width:25px;
+    background:white;
+    margin:4px 0;
+    transition:0.3s;
+}
 
 body{font-family: "Segoe UI", Arial, sans-serif;background:var(--gov-light);color:#333;}
 .gov-topbar{background:#002147; color:white; text-align:center; padding:6px; font-size:.85rem;}
@@ -33,8 +118,6 @@ body{font-family: "Segoe UI", Arial, sans-serif;background:var(--gov-light);colo
 .logo-group img{ height:60px;}
 .logo-group h1{ font-size:1.4rem;}
 .logo-group p{font-size:.85rem; opacity:.9;}
-.main-nav a{ color:white;  text-decoration:none;  margin-left:25px; font-size:0.7rem; font-weight:400;}
-.main-nav a:hover{  color:var(--gov-gold);}
 .announcement{ background:var(--gov-gold); color:#222; padding:10px; text-align:center; font-weight:600;}
 .hero{
   background:url('https://lh3.googleusercontent.com/gps-cs-s/AHVAwerORAg7jJgqm4Cl-uFITsdANEGHMNI-Ofxo7-Xd0S9pbBxg1qFCwCPBshODivrrHlRQE1xHjJLdk84u_aEjA_F2kdhZYZ6giJoqzT6vRQ68TW057W4WtHBPJMXy7ppr7kmXgqd1=s1360-w1360-h1020-rw');
@@ -247,6 +330,38 @@ table th{
     text-align:center;
     padding:20px;
 }
+
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .nav-links{
+        display:none;
+        flex-direction:column;
+        width:100%;
+        margin-top:10px;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .dropdown-content{
+        position:static;
+        background:none;
+        backdrop-filter:none;
+    }
+
+    .dropdown:hover .dropdown-content{
+        display:block;
+    }
+
+    .hamburger{
+        display:flex;
+    }
+}
+
+
 </style>
 
 </head>
@@ -269,16 +384,71 @@ table th{
     <p>Dingalan, Aurora</p>
   </div>
 </div>
-</div>
-<nav class="main-nav">
-  <a href="#">Home</a>
-  <a href="#">Citizen Charter</a>
-  <a href="#">Services</a>
-  <a href="#">Officials</a>
-  <a href="#">Transparency</a>
-  <a href="#">Contact</a>
-</nav>
 
+
+
+<div class="navbar">
+  <div class="nav-container">
+
+    <div class="nav-links" id="navLinks">
+
+      <a href="#">Home</a>
+
+      <div class="dropdown">
+        <button class="dropbtn">About ▾</button>
+        <div class="dropdown-content">
+          <a href="#">History</a>
+          <a href="#">Mission & Vision</a>
+          <a href="#">Officials</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Services ▾</button>
+        <div class="dropdown-content">
+          <a href="#">Clearance</a>
+          <a href="#">Permit</a>
+          <a href="#">Certificates</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Transparency ▾</button>
+        <div class="dropdown-content">
+          <a href="#">Citizen's Charter</a>
+          <a href="#">Budget</a>
+          <a href="#">Projects</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Full Disclosure ▾</button>
+        <div class="dropdown-content">
+          <a href="#">Financial Reports</a>
+          <a href="#">Procurement</a>
+        </div>
+      </div>
+
+      <a href="contactUs.html">Contact</a>
+
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+<script>
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
 
 </header>
 
@@ -337,6 +507,10 @@ table th{
 <i class="fas fa-id-card"></i>
 <h4>Document Issuance</h4>
 <p>Apply for barangay certificates and permits.</p>
+<a href="fillupform.html">
+   Apply for barangay certificates
+</a>
+
 </div>
 
 <div class="service-card">
@@ -362,16 +536,18 @@ table th{
 
 <h2 class="section-title">BARANGAY OFFICIALS</h2>
 
-<div class="services-grid">
-
 <div class="service-card">
     <img 
         src="https://lh3.googleusercontent.com/d/1V_yvHGIKGPPzOR3hw0XKqU5F_fbIZ0OG" 
         alt="Service Image"
-        style="width:100%; height:auto;">
+        style="width:100%;width:300px; height:300px;">
                 <h3>Hon. Macario F. Roxas</h3>
                 <p>Barangay Captain</p>
 </div>
+
+
+<div class="services-grid">
+
 
 <div class="service-card">
     <img 
@@ -489,20 +665,83 @@ table th{
     </section>
 
     <!-- NEWS -->
-    <section class="card">
-        <h2>Latest News</h2>
+<section class="card">
 
-        <div class="news-item">
-            <h3>Medical Mission Conducted</h3>
-            <p>Free medical check-up was conducted last February 15.</p>
-        </div>
+<style>
+#news-widget {
+  border: 1px solid #ccc;
+  padding: 15px;
+  max-width: 500px;
+  font-family: Arial, sans-serif;
+}
+#news-widget h2 {
+  margin-top: 0;
+  font-size: 1.2em;
+  color: #333;
+}
+#news-widget ul {
+  list-style: none;
+  padding-left: 0;
+}
+#news-widget li {
+  margin-bottom: 8px;
+}
+#news-widget a {
+  text-decoration: none;
+  color: #0073e6;
+}
+#news-widget a:hover {
+  text-decoration: underline;
+}
+    h2 { color: #003366; }
+    ul { list-style: none; padding: 0; }
+    li { background: #fff; margin: 10px 0; padding: 10px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    img { margin-top: 5px; border-radius: 4px; }
 
-        <div class="news-item">
-            <h3>Clean-Up Drive Success</h3>
-            <p>Community clean-up drive collected 2 tons of waste.</p>
-        </div>
+</style>
 
-    </section>
+<h2>News & Announcements</h2>
+<ul id="news-list">
+  <li>Loading news...</li>
+</ul>
+
+<script>
+fetch("news.json")
+  .then(res => {
+    if (!res.ok) throw new Error("HTTP error " + res.status);
+    return res.json();
+  })
+  .then(data => {
+    if (data.length === 0) {
+      document.getElementById('news-list').innerHTML = "<li>No news available.</li>";
+      return;
+    }
+    const newsHtml = data.map(item => 
+      `<li>
+         <strong>${item.date}</strong> - 
+         <a href="${item.link}" target="_blank">${item.title}</a>
+         ${item.image ? `<br><img src="${item.image}" width="120">` : ""}
+       </li>`
+    ).join('');
+    document.getElementById('news-list').innerHTML = newsHtml;
+  })
+  .catch(err => {
+    console.error("Fetch error:", err);
+    document.getElementById('news-list').innerHTML =
+      "<li>⚠ Unable to load news. Check console.</li>";
+  });
+</script>
+
+</section>
+
+
+<!-- GOOGLE MAP -->
+<div class="map">
+    <h2 style="color:#003366;">Find Us</h2>
+
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2253.422618273166!2d121.39219261098282!3d15.382660779582725!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33974fe7985e6a1f%3A0x901f013ac023676f!2sAplaya%20Barangay%20Hall!5e0!3m2!1sen!2sph!4v1772061775354!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
 
 
 <!-- FOOTER -->
