@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Barangay Aplaya Official Website</title>
-<link rel="manifest" href="https://progressier.app/lIDXwRqFeDzxbPh5aE2Y/progressier.json"/><script defer src="https://progressier.app/lIDXwRqFeDzxbPh5aE2Y/script.js"></script> 
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -468,28 +468,38 @@ function toggleMenu(){
   <div class="citizen-charter">
      <h2 class="section-title">Citizen Charter Quick Access</h2>
      <div class="charter-grid">
+
+        <a href="charterClearance.html">
         <div class="charter-card">
            <i class="fas fa-file-alt"></i>
            <h4>Clearances</h4>
            <p>Barangay Clearance, Residency, Indigency</p>
         </div>
+        </a>
+
+        <a href="charterKP.html">
         <div class="charter-card">
            <i class="fas fa-gavel"></i>
            <h4>Katarungang Barangay</h4>
            <p>Complaint & Mediation Services</p>
         </div>
+        </a>
 
+        <a href="charterMedical.html">
         <div class="charter-card">
            <i class="fas fa-heart"></i>
            <h4>Health Programs</h4>
            <p>Senior & Medical Services</p>
         </div>
+        </a>
 
+        <a href="charterGarbage.html">
         <div class="charter-card">
            <i class="fas fa-leaf"></i>
            <h4>Environmental</h4>
            <p>Waste & Cleanliness Programs</p>
         </div>
+        </a>
 
      </div>
    </div>
@@ -639,7 +649,7 @@ function toggleMenu(){
 
     <!-- STATISTICS -->
     <section class="card">
-        <h2>Resident Statistics</h2>
+        <h2>Resident Statistics (figures are sample only.. actual figures to be updated once published online)</h2>
 
         <div class="stats-grid">
             <div class="stat-box">
@@ -649,17 +659,17 @@ function toggleMenu(){
 
             <div class="stat-box">
                 <h3>Households</h3>
-                <p>620</p>
+                <p>623</p>
             </div>
 
             <div class="stat-box">
                 <h3>Registered Voters</h3>
-                <p>800</p>
+                <p>1,500</p>
             </div>
 
             <div class="stat-box">
                 <h3>Senior Citizens</h3>
-                <p>205</p>
+                <p>220</p>
             </div>
         </div>
     </section>
@@ -720,8 +730,7 @@ fetch("news.json")
       `<li>
          <strong>${item.date}</strong> - 
          <a href="${item.link}" target="_blank">${item.title}</a>
-         ${item.image ? `<br><img src="${item.image}" width="120">` : ""}
-       </li>`
+         ${item.img_link ? `<br><img src="${item.img_link}" width="120">` : ""}       </li>`
     ).join('');
     document.getElementById('news-list').innerHTML = newsHtml;
   })
