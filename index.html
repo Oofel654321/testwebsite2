@@ -323,6 +323,73 @@ table th{
     border-bottom:1px solid #ddd;
 }
 
+/* Basic dropdown styling */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.dropbtn {
+  background-color: #003366;
+  color: white;
+  padding: 12px 18px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.dropbtn:hover {
+  background-color: #0055aa;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f4f6f9;
+  min-width: 350px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1;
+  padding: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dropdown-content th, .dropdown-content td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.dropdown-content th {
+  background-color: #e9eff6;
+}
+
+.dropdown-content tr:hover {
+  background-color: #eef2f7;
+}
+
+.dropdown-content a {
+  color: #003366;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  text-decoration: underline;
+}
+
+
 /* FOOTER */
 .footer{
     background:#003366;
@@ -385,15 +452,7 @@ table th{
   </div>
 </div>
 
-
-
 <div class="navbar">
-  <div class="nav-container">
-
-    <div class="nav-links" id="navLinks">
-
-      <a href="#">Home</a>
-
       <div class="dropdown">
         <button class="dropbtn">About ▾</button>
         <div class="dropdown-content">
@@ -413,36 +472,38 @@ table th{
       </div>
 
       <div class="dropdown">
-        <button class="dropbtn">Transparency ▾</button>
-        <div class="dropdown-content">
-          <a href="#">Citizen's Charter</a>
-          <a href="#">Budget</a>
-          <a href="#">Projects</a>
-        </div>
-      </div>
-
-      <div class="dropdown">
+         <button class="dropbtn">Transparency ▾</button>
+         <div class="dropdown-content" style="color:brown">
+            <a href="#">Barangay Profile</a>      
+            <a href="calendarAct.html">Calendar of Activities</a>
+            <a href="#">Programs and Projects</a>
+            <a href="#">Ordinances and Resolutions</a>
+            <a href="#">Announcements</a>
+            <a href="#">Citizen's Charter</a>
+         </div>
+     </div>
+   
+     <div class="dropdown">
         <button class="dropbtn">Full Disclosure ▾</button>
-        <div class="dropdown-content">
-          <a href="#">Financial Reports</a>
-          <a href="#">Procurement</a>
+        <div class="dropdown-content" style="color:brown">
+           <a href="#">Budget Documents</a>
+           <a href="#">Financial Reports</a>
+           <a href="#">Procurement</a>
+           <a href="#">Annual Report</a>
+           <a href="#">Debt and Obligations</a>
         </div>
-      </div>
+     </div>
 
-      <a href="contactUs.html">Contact</a>
-
-    </div>
+     <div class="dropdown">
+        <a href="contactUs.html"><button class="dropbtn">Contact</button></a>
+     </div>
+ </div>
 
     <div class="hamburger" onclick="toggleMenu()">
       <span></span>
       <span></span>
       <span></span>
     </div>
-
-  </div>
-</div>
-
-</div>
 
 <script>
 function toggleMenu(){
@@ -516,9 +577,8 @@ function toggleMenu(){
 <div class="service-card">
 <i class="fas fa-id-card"></i>
 <h4>Document Issuance</h4>
-<p>Apply for barangay certificates and permits.</p>
 <a href="fillupform.html">
-   Apply for barangay certificates
+<p>Apply for barangay certificates and permits.</p>
 </a>
 
 </div>

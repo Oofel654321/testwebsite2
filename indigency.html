@@ -37,14 +37,17 @@ body{font-family: "Times New Roman", serif;margin: 60px; line-height: 1.6;}
    <img src="logo1.jpg" class="logo logo-right">
   </div>
 </div>
-<div class="title">BARANGAY CLEARANCE</div>
+
+<div class="title">CERTIFICATE OF INDIGENCY</div>
 
 <!-- BODY CONTENT -->
 <div class="content">
 
-TO WHOM IT MAY CONCERN:<br>
-<p style="text-indent:40px">This is to certify that <span id="fullname">[Full Name]</span></b>, of legal age, is a resident of <span id="address">[Address]</span>, Barangay Aplaya, Dingalan, Aurora and personally known to me, to be a peaceful and law-abiding citizen, free from administrative case within the jurisdiction of this barangay, of good moral character and reputation in this community.</p>
-<p style="text-indent:40px">This certification is issued this <span id="date">[date]</span>, here at Barangay Aplaya, Dingalan, Aurora upon request of the said resident for whatever purpose it may serve.</p> 
+<p style="margin-bottom:20px">TO WHOM IT MAY CONCERN:</p>
+<p style="margin-bottom:20px">This is to certify that <span id="fullname">[Full Name]</span></b>, of legal age, and a resident of <span id="address">[Address]</span>, is known to be a person of good moral character and law-abiding citizen in this barangay.</p>
+   
+<p  style="margin-bottom:20px">This certification is issued upon the request of the above-named person for <span id="purpose">[purpose]</span>.</p>
+<p>Issued this <span id="date">[date]</span>  at Barangay Aplaya, Dingalan, Aurora.</p>
 </div>
 
 <!-- SIGNATURE -->
@@ -64,7 +67,7 @@ Punong Barangay
 <script>
 const params = new URLSearchParams(window.location.search);
 
-["fullname", "address", "date"].forEach(id => {
+["fullname", "address", "date", "purpose"].forEach(id => {
     const value = params.get(id);
     if (value) document.getElementById(id).textContent = value;
 });

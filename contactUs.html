@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us</title>
+
+<style>
+body{
+    margin:0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:#f4f7fb;
+}
+
+/* SECTION */
+.contact-section{
+    padding:70px 20px;
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:white;
+}
+
+.contact-container{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+
+/* LEFT SIDE */
+.contact-info h2{
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+.contact-info p{
+    margin-bottom:20px;
+    line-height:1.6;
+    color:#e0e0e0;
+}
+
+.info-box{
+    margin-bottom:15px;
+    font-size:15px;
+}
+
+/* RIGHT SIDE FORM */
+.contact-form{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.2);
+}
+
+.contact-form h3{
+    margin-top:0;
+    margin-bottom:20px;
+    color:#2c5364;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group input,
+.form-group textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:14px;
+    outline:none;
+    transition:0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+    border-color:#2c5364;
+}
+
+.form-group textarea{
+    resize:none;
+    height:120px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#2c5364;
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#1c3b4a;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .contact-container{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<section class="contact-section">
+    <div class="contact-container">
+
+        <!-- LEFT INFO -->
+        <div class="contact-info">
+            <h2>Contact Us</h2>
+            <p>It is our pleasure to serve you.</p>
+
+            <div class="info-box"><strong>📍 Address:</strong> Purok Maya-maya</div>
+            <div class="info-box"><strong>📞 Phone:</strong> 0999-1234-567</div>
+            <div class="info-box"><strong>✉ Email:</strong> bgyaplaya@gmail.com</div>
+            <div class="info-box"><strong>🕒 Office Hours:</strong> Monday – Friday | 8:00 AM – 5:00 PM</div>
+        </div>
+
+        <!-- RIGHT FORM -->
+        <div class="contact-form">
+            <h3>Send Us a Message</h3>
+            <form action="/submit_contact" method="POST">
+                <div class="form-group">
+                    <input type="text" name="fullname" placeholder="Full Name" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email Address" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="subject" placeholder="Subject" required>
+                </div>
+
+                <div class="form-group">
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                </div>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+</body>
+</html>

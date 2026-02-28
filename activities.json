@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Clean-Up Drive",
+    "date": "2026-03-01",
+    "category": "Community",
+    "description": "Barangay-wide coastal clean-up activity.",
+    "image": "https://via.placeholder.com/400x200"
+  },
+  {
+    "title": "Medical Mission",
+    "date": "2026-04-10",
+    "category": "Health",
+    "description": "Free check-up and medicines for residents.",
+    "image": "https://via.placeholder.com/400x200"
+  },
+  {
+    "title": "Youth Sports Fest",
+    "date": "2026-05-15",
+    "category": "Community",
+    "description": "Inter-purok basketball tournament.",
+    "image": "https://via.placeholder.com/400x200"
+  }
+]
